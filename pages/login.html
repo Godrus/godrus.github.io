@@ -11,66 +11,76 @@
 </head>
 
 <body>
-  <main class="container mt-5">
-      <div class="row justify-content-center">
-        <div class="col-12 col-md-8 col-lg-6 align-content-sm-center justify-content-center">
-          <div class="card login">
-            <div class="card-header text-center">
-              <h2>Sign in</h2>
-            </div>
-            <div class="card-body neu">
-              <form action="">
+  <main class="container mt-auto">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6 align-content-sm-center justify-content-center">
+        <div class="card login">
+          <div class="card-header text-center">
+            <h2>Welcome</h2>
+          </div>
+          <div class="card-body neu">
+            <form action="">
 
-                <div class="form-group">
-                  <label for="log">Your email</label>
+              <div class="form-group">
+                <label for="log">Your email</label>
 
-                  <div class="input-group mb-4">
-                    <div class="input-group">
-                      <div class="input-group-prepend neu">
-                        <span class="input-group-text icon" id="my-addon"><img draggable="false"
-                            src="/assets/svg/mail.svg"></span>
-                      </div>
-                      <input class="form-control custom-focus" type="email" name="uMail" placeholder="example@company.com"
-                        aria-label="Recipient's " id="log">
+                <div class="input-group mb-4">
+                  <div class="input-group">
+                    <div class="input-group-prepend neu">
+                      <span class="input-group-text icon" id="my-addon">
+                        <img draggable="false" src="/assets/svg/mail.svg">
+                      </span>
                     </div>
+                    <input class="form-control custom-focus" type="email" name="uMail" placeholder="example@company.com"
+                      aria-label="Recipient's " id="log">
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="pass">Password</label>
+
+                <div class="input-group mb-4">
+                  <div class="input-group">
+                    <div class="input-group-prepend neu">
+                      <span class="input-group-text icon" id="my-addon">
+                        <img draggable="false" src="/assets/svg/pass.svg">
+                      </span>
+                    </div>
+                    <input class="form-control custom-focus" type="password" name="" placeholder="Password"
+                      aria-label="Recipient's " id="pass">
                   </div>
                 </div>
 
-                <div class="form-group">
-                  <label for="pass">Password</label>
-
-                  <div class="input-group mb-4">
-                    <div class="input-group">
-                      <div class="input-group-prepend neu">
-                        <span class="input-group-text icon" id="my-addon"><img src="/assets/svg/pass.svg"></span>
-                      </div>
-                      <input class="form-control custom-focus" type="password" name="" placeholder="Password"
-                        aria-label="Recipient's " id="pass">
-                    </div>
+                <div class="d-block d-sm-flex justify-content-between align-items-center">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="" id="remember" value="true">
+                    <label for="remember" class="form-check-label">Remember me</label>
                   </div>
-
-                  <div class="d-block d-sm-flex justify-content-between align-items-center">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="" id="remember" value="true">
-                      <label for="remember" class="form-check-label">Remember me</label>
-                    </div>
-                    <div><a href="#" class="small text-right">Lost password?</a></div>
-                  </div>
+                  <div><a href="#" class="small text-right">Lost password?</a></div>
                 </div>
+              </div>
 
-                <div class="mt-3 mb-4 text-center">
-                  <button type="submit" class="neu btn">Sign in</button>
-                </div>
+              <div class="mt-3 mb-4 text-center">
+                <button type="submit" class="neu btn">Sign in</button>
+              </div>
 
-              </form>
-            </div>
+            </form>
           </div>
         </div>
       </div>
+    </div>
   </main>
-  <footer class="mt-auto justify-content-between">
-    <div><img src="" alt=""></div>
-    <div><img src="" alt=""></div>
+  <footer class="footer mt-auto justify-content-between">
+    <div style="display: grid;"><img style="margin-top:auto;" src="/assets/pic/Digital ED.png" alt=""></div>
+
+    <div class="card" style="background: transparent; border: unset; width: 200px;">
+      <div></div>
+      <div class="card-body" style="display: grid; padding-bottom: 5px; ">
+        <img class="card-title" style="margin: auto;" src="/assets/pic/Nipi.png" alt="">
+        <p class="card-text" style="color: white; text-align: center;">Цифровизация и управление данными</p>
+      </div>
+    </div>
   </footer>
 
   <script src="../js/bootstrap.bundle.min.js"></script>
