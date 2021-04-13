@@ -185,12 +185,13 @@ footer {
 }
 
 .mpage .row {
-  max-width: 700px;
+  min-width: 700px;
+  max-width: 1200px;
   margin: auto;
 }
 
 .mpage .neu.card.col-sm {
-  margin: auto;
+  margin: 25px;
   margin-bottom: 15px;
   flex:none;
   padding: 8px;
@@ -210,4 +211,8 @@ footer {
 
 .mpage .neu.card.shadow-soft:hover{
   box-shadow: inset 2px 2px 5px #b8b9be, inset -3px -3px 7px #fff;
+}
+
+.mpage .neu.card.shadow-soft:hover .card-title{
+  color: #048b9c;
 }
