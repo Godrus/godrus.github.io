@@ -1,6 +1,7 @@
 :root{
   --main-font-color: #646464;
   --main-bg-color: #E6E7EE;
+  --main-svg-color: #048b9c;
 }
 
 *,
@@ -196,6 +197,7 @@ footer {
   flex:none;
   padding: 8px;
   border-radius: 15px;
+  align-items: center;
 }
 
 .mpage .card-img-top {
@@ -215,4 +217,8 @@ footer {
 
 .mpage .neu.card.shadow-soft:hover .card-title{
   color: #048b9c;
+}
+
+.mpage .neu.card.shadow-soft:hover .neo-svg{
+  fill: #048b9c;
 }
