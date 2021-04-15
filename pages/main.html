@@ -27,7 +27,8 @@
                     </span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+
+                    <ul class="navbar-nav mb-2 mb-md-0">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">
                                 <font style="vertical-align: inherit;">
@@ -36,14 +37,34 @@
                             </a>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <input class="neu form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск">
-                        <button class="neu btn btn-outline-success" type="submit">
-                            <font style="vertical-align: inherit;">
-                                <font style="vertical-align: inherit;">Поиск</font>
-                            </font>
-                        </button>
-                    </form>
+
+                    <div class="d-flex ms-auto">
+                        <div class="neu btn btn-outline-success neu-form daynight me-2">
+                            <input class="neu-checkbox" name="ncb" id="neu-cb" type="checkbox" name="" value="">
+                            <label for="neu-cb" class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                                    class="neu-image-svg" viewBox="0 0 16 16">
+                                    <path visibility="visible"
+                                        d="M7 8a3.5 3.5 0 0 1 3.5 3.555.5.5 0 0 0 .625.492A1.503 1.503 0 0 1 13 13.5a1.5 1.5 0 0 1-1.5 1.5H3a2 2 0 1 1 .1-3.998.5.5 0 0 0 .509-.375A3.502 3.502 0 0 1 7 8zm4.473 3a4.5 4.5 0 0 0-8.72-.99A3 3 0 0 0 3 16h8.5a2.5 2.5 0 0 0 0-5h-.027z" />
+                                    <path visibility="visible" class="neu-checkbox-icon checkbox-c" fill="#5c93c3"
+                                        d="M11.286 1.778a.5.5 0 0 0-.565-.755 4.595 4.595 0 0 0-3.18 5.003 5.46 5.46 0 0 1 1.055.209A3.603 3.603 0 0 1 9.83 2.617a4.593 4.593 0 0 0 4.31 5.744 3.576 3.576 0 0 1-2.241.634c.162.317.295.652.394 1a4.59 4.59 0 0 0 3.624-2.04.5.5 0 0 0-.565-.755 3.593 3.593 0 0 1-4.065-5.422z" />
+                                    <path visibility="hidden" class="neu-checkbox-icon checkbox-h" fill="#ffda9e"
+                                        d="M10.5 1.5a.5.5 0 0 0-1 0v1a.5.5 0 0 0 1 0v-1zm3.743 1.964a.5.5 0 1 0-.707-.707l-.708.707a.5.5 0 0 0 .708.708l.707-.708zm-7.779-.707a.5.5 0 0 0-.707.707l.707.708a.5.5 0 1 0 .708-.708l-.708-.707zm1.734 3.374a2 2 0 1 1 3.296 2.198c.199.281.372.582.516.898a3 3 0 1 0-4.84-3.225c.352.011.696.055 1.028.129zm4.484 4.074c.6.215 1.125.59 1.522 1.072a.5.5 0 0 0 .039-.742l-.707-.707a.5.5 0 0 0-.854.377zM14.5 6.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z" />
+                                </svg>
+                            </label>
+                        </div>
+
+                        <form class="d-flex">
+                            <input class="neu form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск">
+                            
+                            <button class="neu btn btn-outline-success" type="submit">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Поиск</font>
+                                </font>
+                            </button>
+                        </form>
+                    </div>
+
                 </div>
             </div>
         </nav>
@@ -51,7 +72,7 @@
         <div class="container mpage">
             <div class="row justify-content-center">
 
-                <div class="neu card col-sm shadow-soft">
+                <div class="neu card col-4 col-md-3 col-lg-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor"
                         class="bi bi-tools neo-svg" viewBox="0 0 16 16">
                         <path
@@ -65,7 +86,7 @@
 
 
 
-                <div class="neu card col-sm shadow-soft">
+                <div class="neu card col-4 col-md-3 col-lg-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor"
                         class="bi bi-tools neo-svg" viewBox="0 0 16 16">
                         <path
@@ -79,7 +100,7 @@
 
 
 
-                <div class="neu card col-sm shadow-soft">
+                <div class="neu card col-4 col-md-3 col-lg-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor"
                         class="bi bi-clipboard-data neo-svg" viewBox="0 0 16 16">
                         <path
@@ -97,7 +118,7 @@
 
 
 
-                <div class="neu card col-sm shadow-soft">
+                <div class="neu card col-4 col-md-3 col-lg-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor"
                         class="bi bi-card-checklist neo-svg" viewBox="0 0 16 16">
                         <path
@@ -112,7 +133,7 @@
                 </div>
 
 
-                <div class="neu card col-sm shadow-soft">
+                <div class="neu card col-4 col-md-3 col-lg-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor"
                         class="bi bi-stack neo-svg" viewBox="0 0 16 16">
                         <path
@@ -126,7 +147,7 @@
                     </div>
                 </div>
 
-                <div class="neu card col-sm shadow-soft">
+                <div class="neu card col-4 col-md-3 col-lg-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor"
                         class="bi bi-download neo-svg" viewBox="0 0 16 16">
                         <path
@@ -140,7 +161,7 @@
                     </div>
                 </div>
 
-                <div class="neu card col-sm shadow-soft">
+                <div class="neu card col-4 col-md-3 col-lg-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor"
                         class="bi bi-tags neo-svg" viewBox="0 0 16 16">
                         <path
@@ -154,7 +175,7 @@
                     </div>
                 </div>
 
-                <div class="neu card col-sm shadow-soft">
+                <div class="neu card col-4 col-md-3 col-lg-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor"
                         class="bi bi-file-text neo-svg" viewBox="0 0 16 16">
                         <path
@@ -168,7 +189,7 @@
                     </div>
                 </div>
 
-                <div class="neu card col-sm shadow-soft">
+                <div class="neu card col-4 col-md-3 col-lg-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor"
                         class="bi bi-diagram-2 neo-svg" viewBox="0 0 16 16">
                         <path fill-rule="evenodd"
@@ -180,13 +201,13 @@
                     </div>
                 </div>
 
-                <div class="neu card col-sm shadow-soft">
+                <div class="neu card col-4 col-md-3 col-lg-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor"
                         class="bi bi-diagram-2 neo-svg" viewBox="0 0 49 49">
                         <path
                             d="M24.728 42.63s0-.163 0 0c0-.163 0-.163 0 0 2.115-2.45 3.58-4.737 4.393-7.187 1.139-3.266 1.464-6.533 1.301-9.8-.162-2.45-.488-4.736-.976-6.86-.162-.98-.488-1.796-.65-2.613-.163-.327-.163-.653-.326-.98-.325-1.143-.65-1.797-.65-1.797s.325.654.65 1.797a45.123 45.123 0 00-1.952-5.227c-1.139-2.45-1.952-3.92-1.952-3.92s-.976 1.307-2.115 3.43c-.488.98-.976 1.96-1.465 3.104l-.976 2.45c.163.163.163.326.326.653-.163-.327-.326-.49-.326-.653-.325.98-.65 1.96-.813 2.94v.163c-.325 1.96-.65 4.083-.65 6.697v.816c.325 4.574 1.789 9.964 5.368 15.844.163.326.488.816.65 1.143v-.163c-.325-.654-.813-2.287-1.138-4.41-.326-2.614-.326-6.207 1.139-9.8v-.164c0 .164.162.164.162.327 1.302 2.94 1.464 5.88 1.302 8.167-.163 1.306-.326 2.613-.65 3.593-.164.49-.326.98-.326 1.307-.163.653-.326.98-.326 1.143 0 0-.162 0 0 0z" />
                         <path
-                            d="M36.28 3.103C32.7 1.143 28.795 0 24.402 0 10.9 0 0 10.943 0 24.5S10.9 49 24.403 49c13.503 0 24.403-10.943 24.403-24.5 0-4.41-1.139-8.493-3.09-11.923l-2.604 1.47c1.79 3.266 2.766 6.86 2.766 10.943 0 12.25-9.924 22.213-22.126 22.213-12.201 0-22.125-9.963-22.125-22.213 0-12.25 9.924-22.213 22.125-22.213 4.068 0 7.81 1.143 11.063 2.94L33.188 8.82l8.623-.163-4.556-7.35-.976 1.796zm24.245 " />
+                            d="M36.28 3.103C32.7 1.143 28.795 0 24.402 0 10.9 0 0 10.943 0 24.5S10.9 49 24.403 49c13.503 0 24.403-10.943 24.403-24.5 0-4.41-1.139-8.493-3.09-11.923l-2.604 1.47c1.79 3.266 2.766 6.86 2.766 10.943 0 12.25-9.924 22.213-22.126 22.213-12.201 0-22.125-9.963-22.125-22.213 0-12.25 9.924-22.213 22.125-22.213 4.068 0 7.81 1.143 11.063 2.94L33.188 8.82l8.623-.163-4.556-7.35-.976 1.796zm24.245" />
                     </svg>
                     <div class="card-body">
                         <h6 class="card-title">Данные Нипигаз</h6>
@@ -198,9 +219,10 @@
     </main>
 
     <footer class="footer mt-auto justify-content-center">
-        <div><img src="/assets/pic/main/f-pic-m-d.png" alt=""></div>
+        <div><img class="img-fluid" src="/assets/pic/main/f-pic-m-d.png" alt=""></div>
     </footer>
     <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 
 </html>
