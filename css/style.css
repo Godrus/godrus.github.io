@@ -83,7 +83,7 @@ footer {
 /* Colors and Themes */
 .neu {
   background-color: var(--main-bg-color);
-  background: var(--main-bg-color)
+  background: var(--main-bg-color);
 }
 
 /* Customization */
@@ -273,6 +273,12 @@ footer {
 .mpage .neu.card:hover .neo-svg {
   fill: var(--main-svg-color);
   transition: all .5s;
+}
+
+.neu .card-text{
+  color: var(--main-font-color);
+  background-color: transparent;
+  text-align: center;
 }
 
 /* --------- Dark Theme Customization --------- */
