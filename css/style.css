@@ -115,8 +115,7 @@ footer {
   border-radius: 15px;
 }
 
-
-/* Inputs */
+/* ----- Inputs ----- */
 .neu-form, .neu-form:hover, .neu-image-svg:hover{
   cursor: pointer;
 }
@@ -165,6 +164,7 @@ footer {
   color: var(--main-font-color);
   background-color: var(--main-bg-color);
   border-color: var(--main-border-color);
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .neu.btn.shadow-soft {
@@ -212,6 +212,28 @@ footer {
   width: 32px;
 }
 
+/* ----- Tables ----- */
+.neu.table {
+  border-color: var(--main-font-color);
+  padding: unset;
+  margin-bottom: 0;
+}
+
+.neu.table tr {
+  border-top: 1px solid var(--main-color-font);
+}
+
+.neu.table td, th {
+  border-bottom: none;
+}
+
+.neu.table td {
+  border-top: 1px groove;
+}
+
+.neu.table td p{
+  margin: 0;
+}
 
 
 /* ----- Cards Properties ----- */
