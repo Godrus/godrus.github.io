@@ -65,148 +65,26 @@
       </div>
     </nav>
 
-    <div class="container ">
-      <div class="neu shadow-inset border">
-        <ul class="listree">
-          <li>
-            <div class="listree-submenu-heading collapsed">Metrics</div>
-            <ul class="listree-submenu-items" style="display: none;">
-              <li>
-                <div class="listree-submenu-heading expanded">Daily Metrics</div>
-                <ul class="listree-submenu-items" style="display: block;">
-                  <li>
-                    <div class="listree-submenu-heading collapsed">Daily Order Metrics</div>
-                    <ul class="listree-submenu-items" style="display: none;">
-                      <li>
-                        <div class="listree-submenu-heading collapsed">Categorywise Daily order metrics</div>
-                        <ul class="listree-submenu-items" style="display: none;">
-                          <li>
-                            <a href="">Categorywise daily order count</a>
-                          </li>
-                          <li>
-                            <a href="">Categorywise daily bookings</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <div class="listree-submenu-heading collapsed">Storewise Daily order metrics</div>
-                        <ul class="listree-submenu-items" style="display: none;">
-                          <li>
-                            <a href="">Storewise daily order count</a>
-                          </li>
-                          <li>
-                            <a href="">Storewise daily bookings</a>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <div class="listree-submenu-heading collapsed">Daily Invoice Metrics</div>
-                    <ul class="listree-submenu-items" style="display: none;">
-                      <li>
-                        <div class="listree-submenu-heading collapsed">Categorywise Daily invoice metrics</div>
-                        <ul class="listree-submenu-items" style="display: none;">
-                          <li>
-                            <a href="">Categorywise daily invoice count</a>
-                          </li>
-                          <li>
-                            <a href="">Categorywise daily revenue</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <div class="listree-submenu-heading collapsed">Storewise Daily invoice metrics</div>
-                        <ul class="listree-submenu-items" style="display: none;">
-                          <li>
-                            <a href="">Storewise daily invoice count</a>
-                          </li>
-                          <li>
-                            <a href="">Storewise daily revenue</a>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
+    <div class="container">
+      <div class="neu shadow-inset border" onclick="tree_toggle(arguments[0])">
+        <ul class="TV-container">
+          <li class="TV-node TV-root TV-closed">
+            <div class="TV-expand"></div>
+            <div class="TV-content">Root</div>
+            <ul class="TV-container">
+              <li class="TV-node TV-closed">
+                <div class="TV-expand"></div>
+                <div class="TV-content">Item 1</div>
+                <ul class="TV-container">
+                  <li class="TV-node TV-leaf">
+                    <div class="TV-expand"></div>
+                    <div class="TV-content">Item 1.2</div>
                   </li>
                 </ul>
               </li>
-              <li>
-                <div class="listree-submenu-heading collapsed">Monthly Metrics</div>
-                <ul class="listree-submenu-items" style="display: none;">
-                  <li>
-                    <div class="listree-submenu-heading collapsed">Monthly Order Metrics</div>
-                    <ul class="listree-submenu-items" style="display: none;">
-                      <li>
-                        <div class="listree-submenu-heading collapsed">Categorywise Monthly order metrics</div>
-                        <ul class="listree-submenu-items" style="display: none;">
-                          <li>
-                            <a href="">Categorywise monthly order count</a>
-                          </li>
-                          <li>
-                            <a href="">Categorywise monthly bookings</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <div class="listree-submenu-heading collapsed">Storewise Monthly order metrics</div>
-                        <ul class="listree-submenu-items" style="display: none;">
-                          <li>
-                            <a href="">Storewise monthly order count</a>
-                          </li>
-                          <li>
-                            <a href="">Storewise monthly bookings</a>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                  <li>
-                    <div class="listree-submenu-heading collapsed">Monthly Invoice Metrics</div>
-                    <ul class="listree-submenu-items" style="display: none;">
-                      <li>
-                        <div class="listree-submenu-heading collapsed">Categorywise Monthly invoice metrics</div>
-                        <ul class="listree-submenu-items" style="display: none;">
-                          <li>
-                            <a href="">Categorywise monthly invoice count</a>
-                          </li>
-                          <li>
-                            <a href="">Categorywise monthly revenue</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <div class="listree-submenu-heading collapsed">Storewise Monthly invoice metrics</div>
-                        <ul class="listree-submenu-items" style="display: none;">
-                          <li>
-                            <a href="">Storewise monthly invoice count</a>
-                          </li>
-                          <li>
-                            <a href="">Storewise monthly revenue</a>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <div class="listree-submenu-heading expanded">Settings</div>
-            <ul class="listree-submenu-items" style="display: block;">
-              <li>
-                <div class="listree-submenu-heading collapsed">Personal Settings</div>
-                <ul class="listree-submenu-items" style="display: none;">
-                  <li><a href="">Password Settings</a></li>
-                  <li><a href="">Viewing Preferences</a></li>
-                </ul>
-              </li>
-              <li>
-                <div class="listree-submenu-heading collapsed">Org Settings</div>
-                <ul class="listree-submenu-items" style="display: none;">
-                  <li><a href="">Teams</a></li>
-                  <li><a href="">Billing</a></li>
-                </ul>
+              <li class="TV-node TV-leaf">
+                <div class="TV-expand"></div>
+                <div class="TV-content">Item 2</div>
               </li>
             </ul>
           </li>
@@ -215,15 +93,11 @@
     </div>
   </main>
 
-
   <footer class="footer mt-auto justify-content-center">
     <div><img class="img-fluid" src="/assets/pic/main/f-pic-m-d.png" alt=""></div>
   </footer>
   <script src="../js/bootstrap.bundle.min.js"></script>
   <script src="../js/main.js"></script>
-  <script>
-    listree();
-  </script>
 </body>
 
 </html>

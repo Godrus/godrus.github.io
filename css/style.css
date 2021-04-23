@@ -205,8 +205,8 @@ footer {
   margin-bottom: 0;
 }
 
-.neu.table tr {
-  border-top: 1px solid var(--main-color-font);
+.neu.table tr:not(:first-child) {
+  border-top: 1px solid var(--main-font-color);
 }
 
 .neu.table td, th {
@@ -217,8 +217,20 @@ footer {
   border-top: 1px groove;
 }
 
+.neu.table td:not(:first-child), .neu.table th:not(:first-child) {
+  border-left: 1px solid var(--main-font-color);
+}
+
 .neu.table td p {
   margin: 0;
+}
+
+.neu.table .collapse-column {
+  width: 16px;
+}
+
+.neu.table .collapse-switcher {
+  margin-bottom: 3px;
 }
 
 /* ----- Cards Properties ----- */
@@ -334,77 +346,79 @@ footer {
 }
 
 /* ----- TreeView ----- */
-/* Remove default bullets */
-#TreeView ul, .TreeView {
-  list-style-type: none;
-}
-
-#TreeView {
+.TV-container {
   padding: 0;
   margin: 0;
 }
 
-/* Style the caret/arrow */
-.tvRoot {
-  cursor: pointer;
-  user-select: none;
-  /* Prevent text selection */
+.TV-container li {
+  list-style-type: none;
 }
 
-/* Create the caret/arrow with a unicode, and style it */
-.tvRoot::before {
-  content: "\25B6";
-  color: black;
-  display: inline-block;
-  margin-right: 6px;
-  background-color: #2b2b2b;
-  fill: bisque;
+
+/* Отступ для всех дочерних элементов дерева, кроме корня */
+.TV-node {
+  background-image: url(/assets/pic/TV/i.gif);
+  background-position: top left;
+  background-repeat: repeat-y;
+  margin-left: 18px;
+  zoom: 1;
 }
 
-/* Rotate the caret/arrow icon when clicked on (using JavaScript) */
-.tvRoot-down::before {
-  transform: rotate(90deg);
-  border-left: 1px dashed black;
+.TV-root {
+  margin-left: 0;
 }
 
-/* Hide the nested list */
-.tvNested {
-  display: none;
+/* Левая вертикальная линия для всех node */
+.TV-node:last-child {
+  background-image: url(/assets/pic/TV/i_half.gif);
+  background-repeat: no-repeat;
 }
 
-/* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
-.tvActive {
+/* Узел открыт */
+.TV-open .TV-expand {
+  background-image: url(/assets/pic/TV/expand_minus.gif);
+}
+
+/* Узел закрыт. Высший приоритет */
+.TV-closed .TV-expand {
+  background-image: url(/assets/pic/TV/expand_plus.gif);
+}
+
+/* Высший приоритет */
+.TV-leaf .TV-expand {
+  background-image: url(/assets/pic/TV/expand_leaf.gif);
+}
+
+.TV-content {
+  min-height: 18px;
+  margin-left: 18px;
+}
+
+* html .TV-cntent {
+  height: 18px;
+}
+
+.TV-expand {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-top: 3px;
+}
+
+.TV-open .TV-container {
   display: block;
 }
 
-.listree-submenu-heading {
-  cursor: pointer
+.TV-closed .TV-container {
+  display: none;
 }
 
-ul.listree {
-  list-style: none
+.TV-open .TV-expand,
+.TV-closed .TV-expand {
+  cursor: pointer;
 }
 
-ul.listree-submenu-items {
-  list-style: none;
-  border-left: 1px dashed black;
-  white-space: nowrap;
-  margin-right: 4px;
-  padding-left: 20px
-}
-
-div.listree-submenu-heading.collapsed:before {
-  content: "+";
-  margin-right: 4px
-}
-
-div.listree-submenu-heading.expanded:before {
-  content: "-";
-  margin-right: 4px
-}
-
-.scrollable-menu {
-  height: auto;
-  max-width: 800px;
-  overflow-y: hidden
+.TV-leaf .TV-expand {
+  cursor: auto;
 }

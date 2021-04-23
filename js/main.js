@@ -76,10 +76,8 @@ function sendGET() {
     // Отправка запроса и получение ответа
     // 1. Создаем новый объект XMLHttpRequest
     const xhr = new XMLHttpRequest(); // Инициаализация XMLHttpRequest, отвечает за вызов AJAX
-
     // При изменении состояния onreadystatechange вызов функции
     xhr.onreadystatechange = function () {
-
         /*
         if (xhr.readyState === 4) { // Если код ответа 4, то зпрос завершен и был получен ответ
             if (xhr.status === 200) { // Если 200, то нет ошибки
@@ -90,7 +88,6 @@ function sendGET() {
                 alert(xhr.status + ': ' + xhr.statusText);
             }
         }*/
-
         xhr.onload = function(){
             alert('Загружено:' + xhr.status + '<br>' + xhr.response);
         };
@@ -106,19 +103,21 @@ function sendGET() {
     xhr.send();
 }
 
+// Tree View functions
+function tree_toggle(event) {
+  event = event || window.event;
+  var clickedElem = event.target || event.srcElement;
 
-! function(e, t) {
-  "object" == typeof exports && "undefined" != typeof module ? module.exports = t() : "function" == typeof define && define.amd ? define(t) : (e = e || self).listree = t()
-}(this, (function() {
-  "use strict";
-  return function() {
-    const e = document.getElementsByClassName("listree-submenu-heading");
-    Array.from(e).forEach((function(e) {
-      e.classList.add("collapsed"), e.nextElementSibling.style.display = "none", e.addEventListener("click", (function(t) {
-        t.preventDefault();
-        const n = t.target.nextElementSibling;
-        "none" == n.style.display ? (e.classList.remove("collapsed"), e.classList.add("expanded"), n.style.display = "block") : (e.classList.remove("expanded"), e.classList.add("collapsed"), n.style.display = "none"), t.stopPropagation()
-      }))
-    }))
-  }
-}));
+  if (!hasClass(clickedElem, 'TV-expand')) { return; }
+
+  var node = clickedElem.parentNode;
+  if (hasClass(node, 'TV-leaf')) { return; }
+
+  var newClass = hasClass(node, 'TV-open') ? 'TV-closed' : 'TV-open';
+  var re = /(^|\s)(TV-open|TV-closed)(\s|$)/;
+  node.className = node.className.replace(re, '$1' + newClass + '$3');
+}
+
+function hasClass(elem, className){ 
+  return new RegExp("(^|\\s)" + className + "(\\s|$)").test(elem.className);
+}
