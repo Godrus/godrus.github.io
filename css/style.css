@@ -31,6 +31,11 @@
 
 * {
   color: var(--main-font-color);
+  margin-block-end: 0px;
+}
+
+html {
+  height: 100% !important;
 }
 
 btn:hover,
@@ -103,7 +108,9 @@ footer {
 }
 
 /* ----- Inputs ----- */
-.neu-form, .neu-form:hover, .neu-image-svg:hover {
+.neu-form,
+.neu-form:hover,
+.neu-image-svg:hover {
   cursor: pointer;
 }
 
@@ -209,7 +216,12 @@ footer {
   border-top: 1px solid var(--main-font-color);
 }
 
-.neu.table td, th {
+.neu.table tr th:first-child {
+  width: 36px;
+}
+
+.neu.table td,
+th {
   border-bottom: none;
 }
 
@@ -217,7 +229,8 @@ footer {
   border-top: 1px groove;
 }
 
-.neu.table td:not(:first-child), .neu.table th:not(:first-child) {
+.neu.table td:not(:first-child),
+.neu.table th:not(:first-child) {
   border-left: 1px solid var(--main-font-color);
 }
 
@@ -235,8 +248,11 @@ footer {
 
 /* ----- Cards Properties ----- */
 /* --- login page --- */
-.card.login {
+.card {
   background: var(--main-bg-color);
+}
+
+.card.login {
   box-shadow: 3px 3px 9px #3e3e3e;
 }
 
@@ -345,80 +361,97 @@ footer {
   visibility: visible;
 }
 
-/* ----- TreeView ----- */
-.TV-container {
-  padding: 0;
+/* ----- List Tree View ----- */
+
+.listTree,
+.listTree ul,
+.listTree li {
+  /* Подготовка дерева */
   margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.TV-container li {
-  list-style-type: none;
-}
-
-
-/* Отступ для всех дочерних элементов дерева, кроме корня */
-.TV-node {
-  background-image: url(/assets/pic/TV/i.gif);
-  background-position: top left;
-  background-repeat: repeat-y;
-  margin-left: 18px;
-  zoom: 1;
-}
-
-.TV-root {
-  margin-left: 0;
-}
-
-/* Левая вертикальная линия для всех node */
-.TV-node:last-child {
-  background-image: url(/assets/pic/TV/i_half.gif);
-  background-repeat: no-repeat;
-}
-
-/* Узел открыт */
-.TV-open .TV-expand {
-  background-image: url(/assets/pic/TV/expand_minus.gif);
-}
-
-/* Узел закрыт. Высший приоритет */
-.TV-closed .TV-expand {
-  background-image: url(/assets/pic/TV/expand_plus.gif);
-}
-
-/* Высший приоритет */
-.TV-leaf .TV-expand {
-  background-image: url(/assets/pic/TV/expand_leaf.gif);
-}
-
-.TV-content {
-  min-height: 18px;
+ul.listTree ul {
+  /* Отступы на новых уровнях */
   margin-left: 18px;
 }
 
-* html .TV-cntent {
-  height: 18px;
+ul.listTree li {
+  margin: 0;
+  /* padding-left: 7px; */
+  line-height: 20px;
+  border-left: 1px solid var(--main-font-color);
 }
 
-.TV-expand {
-  width: 18px;
-  height: 18px;
-  float: left;
-  margin-top: 3px;
+ul.listTree li:last-child {
+  border-left: none;
 }
 
-.TV-open .TV-container {
+ul.listTree li::before {
+  position: relative;
+  border-bottom: 1px solid var(--main-font-color);
+  content: "";
+  top: -7px;
+  height: 1em;
+  width: 7px;
+  color: white;
+  display: inline-block;
+  /* left: -7px; */
+}
+
+ul.listTree li:last-child:before {
+  border-left: 1px solid var(--main-font-color);
+}
+
+ul.listTree li div {
+  display: inline-block;
+}
+
+ul.listTree label {
+  display: flex;
+  align-items: center;
+}
+
+ul.listTree label span {
+  padding-left: 7px;
+}
+
+.open .listTree {
   display: block;
 }
 
-.TV-closed .TV-container {
+.closed .listTree {
   display: none;
 }
 
-.TV-open .TV-expand,
-.TV-closed .TV-expand {
-  cursor: pointer;
+.listTree .expand {
+  width: 16px;
+  height: 16px;
 }
 
-.TV-leaf .TV-expand {
-  cursor: auto;
+.listTree .content {
+  top: -2px;
+  position: relative;
+}
+
+.listTree .open .expand {
+  background-image: url(/assets/svg/dash-square.svg);
+  background-repeat: no-repeat;
+}
+
+.listTree .closed .expand {
+  background-image: url(/assets/svg/plus-square.svg);
+  background-repeat: no-repeat;
+}
+
+.listTree .leaf .expand {
+  background-image: url(/assets/svg/file-earmark.svg);
+  background-repeat: no-repeat;
+}
+
+.listTree .open .expand,
+.listTree .closed .expand,
+.listTree .leaf {
+  cursor: pointer;
 }

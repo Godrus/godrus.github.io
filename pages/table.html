@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" class="h-100">
+<html lang="ru">
 
 <head>
   <meta charset="UTF-8">
@@ -67,23 +67,23 @@
 
     <div class="container">
       <div class="row align-items-center col-lg-8 justify-content-center m-auto p-2 neu shadow-soft-1 border m-0">
-        <table class="neu table">
+        <table class="neu table" id="mainTable">
           <tr id="0">
             <th></th>
-            <th>
-              <p>Col 1</p>
+            <th onclick="sortTable(1)">
+              <p>First name</p>
+            </th>
+            <th onclick="sortTable(2)">
+              <p>Second name</p>
             </th>
             <th>
-              <p>Col 2</p>
+              <p>Last name</p>
             </th>
             <th>
-              <p>Col 3</p>
+              <p>Country</p>
             </th>
             <th>
-              <p>Col 4</p>
-            </th>
-            <th>
-              <p>Col 5</p>
+              <p>City</p>
             </th>
           </tr>
 
@@ -101,10 +101,10 @@
               </div>
             </td>
             <td>
-              <p>Item 2</p>
+              <p>Row 1</p>
             </td>
             <td>
-              <p>Item 2</p>
+              <p>Row 2</p>
             </td>
             <td>
               <p>Item 2</p>
