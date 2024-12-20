@@ -1,6 +1,6 @@
-import React from "react";
+import React, { JSX } from "react";
 
-const App: React.FC = () => {
+const App: React.FC = (): JSX.Element => {
   return (
     <div className="App">
       <h1>Hello, React with TypeScript and SCSS!</h1>
