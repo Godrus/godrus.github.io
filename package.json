@@ -5,7 +5,7 @@
   "homepage": "https://github.com/Godrus/godrus.github.io",
   "main": "index.js",
   "scripts": {
-    "start": "webpack serve --mode development",
+    "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
