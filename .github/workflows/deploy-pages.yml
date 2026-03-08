@@ -12,7 +12,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      contents: write   # нужно для пуша в ветку gh-pages
       pages: write
       id-token: write
     steps:
