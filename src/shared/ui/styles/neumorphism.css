@@ -1,0 +1,64 @@
+/**
+ * Neumorphism (Soft UI) — переиспользуемая библиотека.
+ * Использует переменные темы из style.css: --color-bg, --color-shadow-1, --color-shadow-2.
+ * Подключение: импортировать после style.css (например в index.css).
+ */
+
+:root {
+  /* Размеры теней неоморфизма */
+  --neu-size: 6px;
+  --neu-size-sm: 4px;
+  --neu-blur: 12px;
+  --neu-blur-sm: 8px;
+  --neu-radius: 15px;
+  --neu-radius-sm: 10px;
+
+  /* Алиасы для совместимости с Card и другими компонентами (подставляются из темы в style.css) */
+  --main-shadow-1-color: var(--color-shadow-1);
+  --main-shadow-2-color: var(--color-shadow-2);
+  --main-svg-color: var(--color-svg);
+  --main-font-color: var(--color-font);
+}
+
+[data-theme="dark"] {
+  --main-shadow-1-color: var(--color-shadow-1);
+  --main-shadow-2-color: var(--color-shadow-2);
+  --main-svg-color: var(--color-svg);
+  --main-font-color: var(--color-font);
+}
+
+/* Утилитарные классы неоморфизма (опционально) */
+.neu-raised {
+  background-color: var(--color-bg);
+  border: none;
+  border-radius: var(--neu-radius);
+  box-shadow:
+    var(--neu-size) var(--neu-size) var(--neu-blur) var(--color-shadow-1),
+    calc(var(--neu-size) * -1) calc(var(--neu-size) * -1) var(--neu-blur) var(--color-shadow-2);
+  transition: box-shadow 0.2s ease;
+}
+
+.neu-inset {
+  background-color: var(--color-bg);
+  border: none;
+  border-radius: var(--neu-radius);
+  box-shadow:
+    inset var(--neu-size) var(--neu-size) var(--neu-blur) var(--color-shadow-1),
+    inset calc(var(--neu-size) * -1) calc(var(--neu-size) * -1) var(--neu-blur) var(--color-shadow-2);
+}
+
+.neu-raised:hover {
+  box-shadow:
+    0 0 0 var(--color-shadow-1),
+    0 0 0 var(--color-shadow-2),
+    inset 2px 2px 5px var(--color-shadow-1),
+    inset -3px -3px 7px var(--color-shadow-2);
+}
+
+.neu-raised:active {
+  box-shadow:
+    0 0 0 var(--color-shadow-1),
+    0 0 0 var(--color-shadow-2),
+    inset 2px 2px 5px var(--color-shadow-1),
+    inset -3px -3px 7px var(--color-shadow-2);
+}

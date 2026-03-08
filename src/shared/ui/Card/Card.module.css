@@ -1,13 +1,13 @@
 .card {
-  background-color: red;
+  background-color: var(--color-bg);
   margin: 25px;
   margin-bottom: 15px;
   flex: none;
   padding: 8px;
-  border-radius: 15px;
+  border-radius: var(--neu-radius, 15px);
   align-items: center;
   box-shadow: 6px 6px 12px var(--main-shadow-1-color), -6px -6px 12px var(--main-shadow-2-color), inset 0px 0px 0px var(--main-shadow-1-color), inset 0px 0px 0px var(--main-shadow-2-color);
-  transition: all .3s;
+  transition: all 0.3s;
 }
 
 .card:hover {

@@ -1,2 +1,3 @@
-/* Импорт стилей */
+/* Импорт стилей (можно подключать этот файл для style + neumorphism) */
 @import './style.css';
+@import './neumorphism.css';
