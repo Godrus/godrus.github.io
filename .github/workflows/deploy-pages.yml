@@ -1,0 +1,57 @@
+# Сборка и деплой на GitHub Pages (ветка gh-pages)
+# Сайт: Settings → Pages → Source: Deploy from a branch → Branch: gh-pages, / (root)
+# В сборку входит главная страница + раздел /GRStream/ (сборка из репозитория GRStream)
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - name: Checkout godrus.github.io
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Build main site
+        run: |
+          npm ci
+          npm run build
+
+      - name: Checkout GRStream
+        uses: actions/checkout@v4
+        with:
+          repository: Godrus/GRStream
+          path: grstream
+
+      - name: Build GRStream client
+        run: |
+          cd grstream
+          npm ci
+          npm run build:packages
+          npm run build -w client
+        env:
+          BASE_PATH: /GRStream/
+
+      - name: Add GRStream into build/GRStream/
+        run: cp -r grstream/apps/client/dist build/GRStream
+
+      - name: Deploy to gh-pages branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          npx gh-pages -d build -r "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" -f
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
