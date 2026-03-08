@@ -5,8 +5,8 @@
   "homepage": "https://github.com/Godrus/godrus.github.io",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open",
-    "build": "webpack --mode production",
+    "start": "node -r ts-node/register node_modules/webpack-cli/bin/cli.js serve --config webpack.config.ts --mode development",
+    "build": "node -r ts-node/register node_modules/webpack-cli/bin/cli.js --config webpack.config.ts --mode production",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
@@ -20,22 +20,27 @@
     "url": "https://github.com/Godrus/godrus.github.io/issues"
   },
   "devDependencies": {
-    "@types/react": "^19.0.2",
-    "@types/react-dom": "^19.0.2",
+    "@types/react": "^19.2.8",
+    "@types/react-dom": "^19.2.3",
+    "@types/webpack": "^5.28.5",
+    "@types/webpack-dev-server": "^4.7.2",
     "css-loader": "^7.1.2",
-    "gh-pages": "^6.2.0",
-    "html-webpack-plugin": "^5.6.3",
-    "sass": "^1.83.0",
-    "sass-loader": "^16.0.4",
+    "gh-pages": "^6.3.0",
+    "html-webpack-plugin": "^5.6.5",
+    "sass": "^1.97.2",
+    "sass-loader": "^16.0.6",
     "style-loader": "^4.0.0",
-    "ts-loader": "^9.5.1",
-    "typescript": "^5.7.2",
-    "webpack": "^5.97.1",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.2.0"
+    "ts-loader": "^9.5.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3",
+    "webpack": "^5.104.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2",
+    "webpack-merge": "^6.0.1"
   },
   "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-router-dom": "^7.12.0"
   }
 }

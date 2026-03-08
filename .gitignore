@@ -1,1 +1,8 @@
+build/
+build/bundle.js
+build/bundle.js.LICENSE.txt
 node_modules/
+.eslintignore
+.eslintrc.js
+.prettierignore
+.prettierrc.js

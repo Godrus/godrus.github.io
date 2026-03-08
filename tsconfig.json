@@ -1,19 +1,40 @@
 {
+  // Опции компилятора TypeScript
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "es2015"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "module": "esnext",
-    "jsx": "react"
+    "target": "es5", // Компилируем в стандарт ECMAScript 5 (подходящий для старых браузеров)
+    "lib": ["dom", "es2015"], // Используем библиотеки DOM и ES2015 для глобальных типов (например, Promise, document)
+    "allowJs": true, // Разрешать импорт и компиляцию js файлов вместе с ts/tsx
+    "skipLibCheck": true, // Не выполнять проверку типов в файлах объявлений библиотек (ускоряет компиляцию)
+    "strict": true, // Включаем строгость: строгая типизация и проверки
+    "esModuleInterop": true, // Совместимость с CommonJS модулями; позволяет импортировать commonjs как default import
+    "moduleResolution": "node", // Разрешение модулей как в Node.js; ищет файлы через node_modules и index.ts
+    "module": "esnext", // Используем современные ES модули (import/export)
+    "jsx": "react", // Включаем поддержку JSX-синтаксиса для React-проектов // "commonjs" — альтернативный модуль, не используется сейчас
+    "baseUrl": ".", // Базовая директория для относительных импортов и "paths"
+    "allowSyntheticDefaultImports": true, // Позволяет импортировать по умолчанию (default import) даже если модуль не экспортирует по умолчанию
+    "resolveJsonModule": true, // Позволяет импортировать JSON файлы
+    // Алиасы для путей: @/file => src/file
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
+
+  // Настройки для ts-node (используется для запуска TS напрямую из Node.js)
+  "ts-node": {
+    "compilerOptions": {
+      // ts-node будет использовать commonjs как систему модулей (нужно для Node.js)
+      "module": "commonjs"
+    }
+  },
+
+  // Файлы и папки, которые будут компилироваться TypeScript'ом
   "include": [
-    "src"
+    "src", // основная папка с исходниками
+    "webpack-config", // папка с конфигами webpack на TS
+    "webpack.config.ts", // главный файл конфигурации webpack
+    "**/*.ts" // все ts-файлы по проекту
   ],
-  "exclude": [
-    "node_modules"
-  ]
+
+  // Исключаем из компиляции node_modules (зависимости)
+  "exclude": ["node_modules"]
 }

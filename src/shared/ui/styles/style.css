@@ -1,0 +1,63 @@
+:root {
+  /* Светлая тема */
+  --color-light-svg: #048b9c;
+  --color-light-font: #646464;
+  --color-light-bg: #e6e7ee;
+  --color-light-shadow-1: #b8b9be;
+  --color-light-shadow-2: #fff;
+  --color-light-shadow-3: #2b2b2b;
+  --color-light-border: #ced4da;
+  --color-light-primary: #4caf50;
+  --color-light-primary-hover: #45a049;
+
+  /* Переменные по умолчанию для светлой темы */
+  --color-svg: var(--color-light-svg);
+  --color-font: var(--color-light-font);
+  --color-bg: var(--color-light-bg);
+  --color-shadow-1: var(--color-light-shadow-1);
+  --color-shadow-2: var(--color-light-shadow-2);
+  --color-shadow-3: var(--color-light-shadow-3);
+  --color-border: var(--color-light-border);
+  --color-primary: var(--color-light-primary);
+  --color-primary-hover: var(--color-light-primary-hover);
+
+  /* Темная тема */
+  --color-dark-svg: #048b9c;
+  --color-dark-font: #e6e7ee;
+  --color-dark-bg: #41464b;
+  --color-dark-shadow-1: #373c40;
+  --color-dark-shadow-2: #4b5156;
+  --color-dark-shadow-3: #2b2b2b;
+  --color-dark-border: #373c40;
+  --color-dark-primary: #4caf50;
+  --color-dark-primary-hover: #45a049;
+}
+
+[data-theme="dark"] {
+  --color-svg: var(--color-dark-svg);
+  --color-font: var(--color-dark-font);
+  --color-bg: var(--color-dark-bg);
+  --color-shadow-1: var(--color-dark-shadow-1);
+  --color-shadow-2: var(--color-dark-shadow-2);
+  --color-shadow-3: var(--color-dark-shadow-3);
+  --color-border: var(--color-dark-border);
+  --color-primary: var(--color-dark-primary);
+  --color-primary-hover: var(--color-dark-primary-hover);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  color: var(--color-font);
+  margin-block-end: 0px;
+}
+
+html, body, #root {
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
