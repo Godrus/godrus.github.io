@@ -6,3 +6,6 @@ node_modules/
 .eslintrc.js
 .prettierignore
 .prettierrc.js
+
+.cursor/
+.agent/

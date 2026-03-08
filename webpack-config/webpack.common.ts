@@ -37,7 +37,7 @@ const commonConfig: Configuration = {
           "sass-loader",
         ],
       },
-      // CSS модули - должно быть ПЕРЕД общим правилом для .css
+      // CSS модули - правило должно срабатывать первым для *.module.css
       {
         test: /\.module\.css$/i,
         use: [
@@ -45,6 +45,7 @@ const commonConfig: Configuration = {
           {
             loader: "css-loader",
             options: {
+              esModule: true,
               modules: {
                 localIdentName: "[local]--[hash:base64:5]",
                 exportLocalsConvention: "camelCase",
