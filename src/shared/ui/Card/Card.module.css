@@ -1,13 +1,19 @@
 .card {
+  position: relative;
   background-color: var(--color-bg);
-  margin: 25px;
-  margin-bottom: 15px;
   flex: none;
-  padding: 8px;
-  border-radius: var(--neu-radius, 15px);
+  padding: 6px;
+  border-radius: var(--neu-radius-sm, 10px);
   align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: 112px;
+  box-sizing: border-box;
   box-shadow: 6px 6px 12px var(--main-shadow-1-color), -6px -6px 12px var(--main-shadow-2-color), inset 0px 0px 0px var(--main-shadow-1-color), inset 0px 0px 0px var(--main-shadow-2-color);
-  transition: all 0.3s;
+  transition: box-shadow 0.3s ease;
 }
 
 .card:hover {
@@ -24,22 +30,74 @@
   object-fit: contain;
 }
 
+/* Иконка через mask + background-color: тот же цвет и transition, что у заголовка (как в старом main.html) */
+.card-icon {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  display: block;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  background-color: var(--main-font-color);
+  transition: background-color 0.3s ease;
+}
+.card:hover .card-icon {
+  background-color: var(--main-svg-color);
+}
+
+/* Тултип при наведении — всплывает над иконкой */
 .card-body {
-  padding: 0;
-  text-align: center;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  margin-bottom: 6px;
+  padding: 6px 10px;
+  background-color: var(--color-shadow-3);
+  color: var(--color-bg);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, visibility 0.2s, transform 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.card-body::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--color-shadow-3);
+}
+
+.card:hover .card-body {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.card-title {
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  transition: color 0.3s ease;
 }
 
 .card:hover .card-title {
-  color: var(--main-svg-color);
-}
-
-.card:hover .neo-svg {
-  fill: var(--main-svg-color);
-  transition: all .5s;
+  color: inherit;
 }
 
 .card-text {
-  color: var(--main-font-color);
-  background-color: transparent;
-  text-align: center;
+  display: none; /* в тултипе только заголовок */
 }

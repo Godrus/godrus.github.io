@@ -25,19 +25,19 @@ const commonConfig: Configuration = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/, // Handle .ts and .tsx files with TypeScript loader
+        test: /\.tsx?$/,
         use: "ts-loader",
         exclude: /node_modules/,
       },
       {
-        test: /\.scss$/, // Handle SCSS files
+        test: /\.scss$/,
         use: [
           "style-loader",
           "css-loader",
           "sass-loader",
         ],
       },
-      // CSS модули - правило должно срабатывать первым для *.module.css
+      // CSS-модули — правило должно идти ПЕРЕД общим .css (первое совпадение побеждает)
       {
         test: /\.module\.css$/i,
         use: [
@@ -54,14 +54,10 @@ const commonConfig: Configuration = {
           },
         ],
       },
-      // Обычные CSS файлы (не модули)
       {
         test: /\.css$/i,
         exclude: /\.module\.css$/i,
-        use: [
-          "style-loader",
-          "css-loader",
-        ],
+        use: ["style-loader", "css-loader"],
       },
     ],
   },

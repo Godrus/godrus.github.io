@@ -9,6 +9,7 @@
   --color-light-border: #ced4da;
   --color-light-primary: #4caf50;
   --color-light-primary-hover: #45a049;
+  --color-theme-cloud: #646464; /* облако в переключателе темы — серое в светлой */
 
   /* Переменные по умолчанию для светлой темы */
   --color-svg: var(--color-light-svg);
@@ -34,6 +35,7 @@
 }
 
 [data-theme="dark"] {
+  --color-theme-cloud: #fff; /* облако в переключателе темы — белое в тёмной */
   --color-svg: var(--color-dark-svg);
   --color-font: var(--color-dark-font);
   --color-bg: var(--color-dark-bg);
@@ -62,24 +64,210 @@ html, body, #root {
   padding: 0 !important;
 }
 
-.App {
+/* Корень приложения: заполняет экран, фон из темы */
+.app-root {
   min-height: 100%;
   background-color: var(--color-bg);
-  padding: clamp(16px, 4vw, 32px);
 }
 
-.HomePage {
-  min-height: 100%;
+/* Резервные классы для HomePage при сбое загрузки CSS-модуля */
+.home-page-root {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-
-.HomePage .menu {
+.home-page-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
   justify-content: center;
-  max-width: 900px;
+  align-items: center;
+  margin: 0 auto;
+  gap: 0;
+}
+
+/* Резервные классы для Layout при сбое загрузки CSS-модуля */
+.main-layout {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+}
+.main-layout .main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.navbar {
+  background-color: var(--color-bg);
+  box-shadow: 3px 3px 6px var(--color-font);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.5rem 1rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+.navbar-end {
+  margin-inline-start: auto;
+}
+[data-theme="dark"] .navbar {
+  box-shadow: 3px 3px 6px var(--color-shadow-3);
+}
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--color-font);
+  text-decoration: none;
+}
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 24px);
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Резерв для ServiceCardLink при сбое загрузки CSS-модуля */
+.service-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 112px;
+  min-height: 112px;
+  margin: 16px;
+  flex-shrink: 0;
+  font-size: 0.8rem;
+}
+
+/* ---------- Карточки (неоморфизм) — как на старом main.html ---------- */
+.card {
+  position: relative;
+  background-color: var(--color-bg);
+  flex: none;
+  padding: 8px;
+  border-radius: var(--neu-radius, 15px);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: 112px;
+  box-sizing: border-box;
+  border: none;
+  box-shadow:
+    6px 6px 12px var(--color-shadow-1),
+    -6px -6px 12px var(--color-shadow-2),
+    inset 0 0 0 var(--color-shadow-1),
+    inset 0 0 0 var(--color-shadow-2);
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow:
+    0 0 0 var(--color-shadow-1),
+    0 0 0 var(--color-shadow-2),
+    inset 2px 2px 5px var(--color-shadow-1),
+    inset -3px -3px 7px var(--color-shadow-2);
+}
+
+.card:active {
+  box-shadow:
+    0 0 0 var(--color-shadow-1),
+    0 0 0 var(--color-shadow-2),
+    inset 2px 2px 5px var(--color-shadow-1),
+    inset -3px -3px 7px var(--color-shadow-2);
+}
+
+.card-icon {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  display: block;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  background-color: var(--color-font);
+  transition: background-color 0.3s ease;
+}
+.card:hover .card-icon {
+  background-color: var(--color-svg);
+}
+
+/* Тултип при наведении */
+.card-body {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  margin-bottom: 6px;
+  padding: 6px 10px;
+  background-color: var(--color-shadow-3);
+  color: var(--color-bg);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, visibility 0.2s, transform 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.card-body::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--color-shadow-3);
+}
+
+.card:hover .card-body {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.card-title {
+  margin: 0;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.card-text {
+  display: none;
+}
+
+/* Резерв для ThemeToggle при сбое CSS-модуля */
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem;
+  color: var(--color-font);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 0.55rem;
+  cursor: pointer;
+  box-shadow: 3px 3px 6px var(--color-shadow-1), -3px -3px 6px var(--color-shadow-2);
+}
+.theme-toggle-btn:hover {
+  box-shadow: inset 2px 2px 5px var(--color-shadow-1), inset -3px -3px 7px var(--color-shadow-2);
+}
+.theme-toggle-btn .icon {
+  display: block;
 }

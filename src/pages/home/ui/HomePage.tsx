@@ -1,46 +1,31 @@
-import { Card } from "@/shared/ui/Card";
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { FC, useMemo } from 'react';
+import { MainLayout, PageContainer } from '@/shared/ui/Layout';
+import { ServiceCardLink } from '@/shared/ui/ServiceCardLink';
+import { MENU_ITEMS } from '@/shared/config/site';
+import stylesImport from './HomePage.module.css';
 
-interface IMenuItem {
-  title: string;
-  path: string;
-  external?: boolean;
-}
+// Защита от undefined при некорректной загрузке CSS-модуля (webpack cache и т.д.)
+const styles = stylesImport ?? ({} as Record<string, string>);
+const rootClass = styles.root ?? 'home-page-root';
+const gridClass = styles.grid ?? 'home-page-grid';
 
-export const HomePage: React.FC = () => {
-  const menuItems: IMenuItem[] = [
-    { title: "Home", path: "/" },
-    { title: "About", path: "/about" },
-    { title: "Contact", path: "/contact" },
-    { title: "Blog", path: "/blog" },
-    { title: "GRStream", path: "/GRStream/", external: true },
-  ];
+export const HomePage: FC = () => {
+  const items = useMemo(() => [...MENU_ITEMS], []);
 
   return (
-    <div className="HomePage">
-      <div className="menu">
-        {menuItems.map((item, index) => {
-          const card = (
-            <Card
-              key={index}
-              id={item.path}
-              title={item.title}
-              text={item.title}
-              svgPath=""
-            />
-          );
-          return item.external ? (
-            <a key={index} href={item.path} style={{ textDecoration: "none" }}>
-              {card}
-            </a>
-          ) : (
-            <Link key={index} to={item.path} style={{ textDecoration: "none" }}>
-              {card}
-            </Link>
-          );
-        })}
-      </div>
-    </div>
+    <MainLayout>
+      <PageContainer>
+        <section
+          className={rootClass}
+          aria-label="Список сервисов"
+        >
+          <div className={gridClass} role="list">
+            {items.map((item) => (
+              <ServiceCardLink key={item.path} item={item} />
+            ))}
+          </div>
+        </section>
+      </PageContainer>
+    </MainLayout>
   );
 };

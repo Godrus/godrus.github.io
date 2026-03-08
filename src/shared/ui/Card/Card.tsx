@@ -5,8 +5,8 @@ interface ICardProps {
   id: string;
   title: string;
   text?: string;
-  svgPath: string;
-  viewBox?: string;
+  /** URL иконки (файл в public), например /assets/svg/diagram-2.svg */
+  iconSrc?: string;
   onClick?: () => void;
   className?: string;
 }
@@ -15,13 +15,29 @@ interface ICardProps {
 const s = styles ?? ({} as Record<string, string>);
 const cn = (name: string, fallback: string) => s[name] ?? fallback;
 
-export const Card: React.FC<ICardProps> = ({ id, title, text = '', svgPath, viewBox = '0 0 16 16', onClick, className = '' }) => {
+export const Card: React.FC<ICardProps> = ({
+  id,
+  title,
+  text = '',
+  iconSrc,
+  onClick,
+  className = '',
+}) => {
   return (
-    <div className={cn('card', 'card')} onClick={onClick}>
-      {svgPath && (
-        <svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" fill="currentColor" className="neo-svg" viewBox={viewBox}>
-          <path d={svgPath} />
-        </svg>
+    <div
+      className={[cn('card', 'card'), className].filter(Boolean).join(' ')}
+      onClick={onClick}
+    >
+      {iconSrc && (
+        <span
+          className={cn('cardIcon', 'card-icon')}
+          style={{
+            maskImage: `url(${iconSrc})`,
+            WebkitMaskImage: `url(${iconSrc})`,
+          }}
+          role="img"
+          aria-hidden
+        />
       )}
       <div className={cn('cardBody', 'card-body')}>
         <h6 className={cn('cardTitle', 'card-title')}>{title}</h6>
