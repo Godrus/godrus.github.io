@@ -50,6 +50,26 @@ jobs:
       - name: Add GRStream into build/GRStream/
         run: cp -r grstream/apps/client/dist build/GRStream
 
+      # Секрет GRS_ACCESS_TOKEN (Settings → Secrets) — PAT с доступом к Godrus/GRS
+      - name: Checkout GRS
+        uses: actions/checkout@v4
+        with:
+          repository: Godrus/GRS
+          path: grs
+          token: ${{ secrets.GRS_ACCESS_TOKEN }}
+
+      - name: Build GRS client
+        run: |
+          cd grs
+          npm ci
+          npm run build:packages
+          npm run build
+        env:
+          BASE_PATH: /GRS/
+
+      - name: Add GRS into build/GRS/
+        run: cp -r grs/build build/GRS
+
       - name: Deploy to gh-pages branch
         run: |
           git config user.name "github-actions[bot]"

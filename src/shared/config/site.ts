@@ -20,4 +20,5 @@ export interface MenuItem {
 
 export const MENU_ITEMS: readonly MenuItem[] = [
   { title: 'GRStream', path: '/GRStream/', external: true, icon: '/assets/svg/diagram-2.svg' },
+  { title: 'GRS', path: '/GRS/', external: true, icon: '/assets/svg/stream-on.svg' },
 ];
