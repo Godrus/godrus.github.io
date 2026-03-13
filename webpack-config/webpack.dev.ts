@@ -17,7 +17,7 @@ const devConfig: Configuration & { devServer?: DevServerConfiguration } = {
     historyApiFallback: true, // For single-page apps
     hot: true, // Hot Module Replacement
     open: true, // Автоматически открывать браузер
-    port: 3000, // Порт для dev server
+    port: 27015, // Порт для dev server
     compress: true, // Сжатие
   },
 };

@@ -58,11 +58,12 @@ jobs:
           path: grs
           token: ${{ secrets.GRS_ACCESS_TOKEN }}
 
+      # GRS использует build:packages (не build:packages:order — этого скрипта в GRS может не быть)
       - name: Build GRS client
         run: |
           cd grs
           npm ci
-          npm run build:packages:order
+          npm run build:packages
           npm run build
         env:
           BASE_PATH: /GRS/
