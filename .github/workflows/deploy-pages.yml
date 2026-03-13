@@ -62,7 +62,7 @@ jobs:
         run: |
           cd grs
           npm ci
-          npm run build:packages
+          npm run build:packages:order
           npm run build
         env:
           BASE_PATH: /GRS/
